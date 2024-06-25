@@ -161,15 +161,27 @@ def main():
         screen.blit(bg_img, [0, 0])
 
         for bomb in bombs:
+        #     if bomb is not None:
+        #         if bird.rct.colliderect(bomb.rct):
+        #             # ゲームオーバー時に，こうかとん画像を切り替え，1秒間表示させる
+        #             bird.change_img(8, screen)
+        #             pg.display.update()
+        #             time.sleep(1)
+        #             return
+        
+        # for i in range(len(bombs)):
             if bomb is not None:
                 if bird.rct.colliderect(bomb.rct):
                     # ゲームオーバー時に，こうかとん画像を切り替え，1秒間表示させる
-                    bird.change_img(8, screen)
+                    #bird.change_img(8, screen)
+                    fonto = pg.font.Font(None, 80)
+                    txt = fonto.render("Game Over", True, (255, 0, 0))
+                    screen.blit(txt, [WIDTH/2-150, HEIGHT/2])
                     pg.display.update()
-                    time.sleep(1)
+                    time.sleep(5)
                     return
         
-        for i in range(len(bombs)):
+        if bomb is not None:
             if beam is not None:
                 if bombs[i].rct.colliderect(beam.rct):
                     bombs[i] = None
