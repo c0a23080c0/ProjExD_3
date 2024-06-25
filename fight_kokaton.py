@@ -144,9 +144,9 @@ class Bomb:
 class Score:
     def __init__(self):
         self.fonto = pg.font.SysFont("hgp創英角ﾎﾟｯﾌﾟ体", 30)
-        txt_cr = (0, 0, 255)
+        self.txt_cr = (0, 0, 255)
         self.score = 0
-        self.img = self.fonto.render(f"{self.score}",0,txt_cr)
+        self.img = self.fonto.render(f"{self.score}",0,self.txt_cr)
 
     def update(self, screen: pg.Surface):
         self.img = self.fonto.render(f"スコア：{self.score}",0,(0,0,255))
